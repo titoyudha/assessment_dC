@@ -17,6 +17,8 @@ class RegionController extends Controller
     {
        $provinces = DB::table('reg_provinces')->select('*')->get();
 
+       dd($provinces);
+
         return view('region_dropdown', ['provinces' => $provinces]);
     }
 

@@ -25,17 +25,25 @@
     </select>
     <select id="regencies-dropdown">
         <option value="">Pilih Kota/Kabupaten</option>
+        @foreach ($regencies as $regency)
+            <option value="{{ $regency->id }}">{{ $regency->name }}</option>
+        @endforeach
     </select>
     <select id="district-dropdown">
         <option value="">Pilih Kecamatan</option>
+        @foreach ($districts as $district)
+            <option value="{{ $district->id }}">{{ $district->name }}</option>
+        @endforeach
     </select>
     <select id="village-dropdown">
         <option value="">Pilih Kelurahan</option>
+        @foreach ($villages as $village)
+            <option value="{{ $village->id }}">{{ $village->name }}</option>
+        @endforeach
     </select>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        // Your JavaScript code here
         $(document).ready(function() {
             // Function to populate cities dropdown
             function populateRegencies(provinceId) {
