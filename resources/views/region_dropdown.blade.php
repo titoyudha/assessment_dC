@@ -18,7 +18,10 @@
 <body>
     <h1>Dropdown Wilayah Administratif Indonesia</h1>
     <select id="province-dropdown">
-        <option value="">Pilih Provinsi</option>
+        <option value="">Select Province</option>
+        @foreach ($provinces as $province)
+            <option value="{{ $province->id }}">{{ $province->name }}</option>
+        @endforeach
     </select>
     <select id="regencies-dropdown">
         <option value="">Pilih Kota/Kabupaten</option>

@@ -15,35 +15,29 @@ class RegionController extends Controller
 {
     public function getProvinces()
     {
-        $provinces = DB::table('reg_provinces')->get();
+       $provinces = DB::table('reg_provinces')->select('*')->get();
 
-        return view('region_dropdown')->with('provinces', $provinces);
+        return view('region_dropdown', ['provinces' => $provinces]);
     }
 
     public function getRegencies()
     {
-        $regencies = Regencies::all("name")
-        ->select('id', 'name')
-        ->get();
+        $regencies = DB::table('reg_regencies')->select('*')->get();
 
-        return new JsonResponse($regencies);
+        return view('region_dropdown', ['regencies' => $regencies]);
     }
 
     public function getDistricts()
     {
-        $districts = District::all("name")
-        ->select('id', 'name')
-        ->get();
+       $districts = DB::table('reg_districts')->select('*')->get();
 
-        return new JsonResponse($districts);
+        return view('region_dropdown',['districts' => $districts]);
     }
 
     public function getVillages()
     {
-        $villages = Village::orderBy("name")
-        ->select('id', 'name')
-        ->get();
+        $villages = DB::table('reg_village')->select('*')->get();
 
-        return new JsonResponse($villages);
+        return view('region_dropdown', ['villages' => $villages]);
     }
 }
